@@ -1,0 +1,48 @@
+{
+  "BestSelling": [
+    {
+      "id": 1,
+      "name": "Classic Monochrome T-shirt",
+      "inStock": true,
+      "price": 35.0,
+      "image": "https://png.pngtree.com/png-clipart/20230607/ourmid/pngtree-black-t-shirt-mockup-new-model-realistic-png-image_7122610.png",
+      "colors": ["black", "#FFD58A", "#83B18B"],
+      "sizes": ["S", "M", "L", "XL"],
+      "category": "T-shirts",
+      "description": "A timeless classic, this monochrome t-shirt is made from high-quality cotton for comfort and durability."
+    },
+    {
+      "id": 2,
+      "name": "Monochromatic Wardrobe",
+      "inStock": true,
+      "price": 27.0,
+      "image": "./BestSellingImages/image1.svg",
+      "colors": ["black", "#FFD58A", "gray"],
+      "sizes": ["S", "M", "L", "XL"],
+      "category": "Wardrobe Essentials",
+      "description": "This monochromatic wardrobe set includes versatile pieces that can be mixed and matched for effortless style."
+    },
+    {
+      "id": 3,
+      "name": "Essential Neutrals",
+      "inStock": true,
+      "price": 22.0,
+      "image": "./BestSellingImages/image2.svg",
+      "colors": ["beige", "taupe", "cream"],
+      "sizes": ["S", "M", "L"],
+      "category": "Neutral Clothing",
+      "description": "These essential neutral pieces are wardrobe staples, perfect for creating chic and understated looks."
+    },
+    {
+      "id": 4,
+      "name": "UTRANET Black",
+      "inStock": true,
+      "price": 43.0,
+      "image": "./BestSellingImages/image3.svg",
+      "colors": ["black"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "category": "Outerwear",
+      "description": "Stay warm and stylish with this UTRANET black jacket, featuring a sleek design and cozy insulation."
+    }
+  ]
+}
