@@ -10,6 +10,7 @@ import Product from "./pages/Product";
 import Categories from "./pages/Categories";
 import Contact from "./pages/Contact";
 import { CartProvider } from "./useContext/CartContext";
+import Cart from "./pages/Cart";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/categories" element={<Categories />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/product/:productId" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <VoiceNavigation />
       </CartProvider>
