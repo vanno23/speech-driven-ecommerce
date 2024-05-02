@@ -35,7 +35,9 @@ const Header = () => {
           />
         </div>
         <div className="headerIcons">
-          <i className="fa-solid fa-cart-shopping"></i>
+          <Link to="cart">
+            <i className="fa-solid fa-cart-shopping"></i>
+          </Link>
           <i className="fa-regular fa-user"></i>
         </div>
       </div>

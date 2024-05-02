@@ -1,12 +1,14 @@
-// ProductInfo.js
 import React, { useState } from "react";
 import "./ProductInfo.css";
 import { useCart } from "../../useContext/CartContext";
+import ProductInfoVoice from "../../voice/ProductInfoVoice";
 
 const ProductInfo = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const { addToCart } = useCart();
+  const [quantity, setQuantity] = useState(1); // Initial quantity set to 1
+
+  const { cart, setCart, addToCart } = useCart();
 
   const handleSizeSelection = (size) => {
     setSelectedSize(size);
@@ -18,17 +20,33 @@ const ProductInfo = ({ product }) => {
 
   const handleAddToCart = () => {
     const { id, name, price, image, category, description } = product;
-    const selectedProduct = {
-      id,
-      name,
-      price,
-      image,
-      category,
-      description,
-      selectedSize,
-      selectedColor,
-    };
-    addToCart(selectedProduct);
+    const existingProductIndex = cart.findIndex((item) => item.id === id);
+
+    if (existingProductIndex !== -1) {
+      const updatedCartItems = [...cart];
+      updatedCartItems[existingProductIndex].quantity += quantity;
+      setCart(updatedCartItems);
+    } else {
+      addToCart({
+        id,
+        name,
+        price,
+        image,
+        category,
+        description,
+        selectedSize,
+        selectedColor,
+        quantity,
+      });
+    }
+  };
+
+  const increaseQuantity = (amount = 1) => {
+    setQuantity((prevQuantity) => prevQuantity + amount);
+  };
+
+  const decreaseQuantity = (amount = 1) => {
+    setQuantity((prevQuantity) => Math.max(prevQuantity - amount, 1));
   };
 
   return (
@@ -40,18 +58,34 @@ const ProductInfo = ({ product }) => {
         <h3>{product.name}</h3>
         <p>${product.price.toFixed(2)}</p>
 
+        <ProductInfoVoice
+          product={product}
+          setSelectedSize={setSelectedSize}
+          setSelectedColor={setSelectedColor}
+          addToCart={handleAddToCart}
+          increaseQuantity={increaseQuantity} // Pass increaseQuantity function
+          decreaseQuantity={decreaseQuantity} // Pass decreaseQuantity function
+          setQuantity={setQuantity} // Pass setQuantity function
+        />
+
         <div className="product_colors">
           <p className="size_title">Available Colors</p>
-          {product.colors.map((color) => (
-            <button
-              key={color}
-              className={`productInfo_color ${
-                selectedColor === color ? "selected" : ""
-              }`}
-              style={{ backgroundColor: color }}
-              onClick={() => handleColorSelection(color)}
-            ></button>
-          ))}
+          <div className="color_buttons">
+            {product.colors.map((color) => (
+              <div
+                key={color}
+                className={`colorBorder ${
+                  selectedColor === color ? "selectedColor" : ""
+                }`}
+              >
+                <button
+                  className={`productInfo_color`}
+                  style={{ backgroundColor: color }}
+                  onClick={() => handleColorSelection(color)}
+                ></button>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="product_size">
           <p className="size_title">SELECT SIZE</p>
@@ -59,13 +93,18 @@ const ProductInfo = ({ product }) => {
             <button
               key={size}
               className={`productInfo_size ${
-                selectedSize === size ? "selected" : ""
+                selectedSize === size ? "selectedSize" : ""
               }`}
               onClick={() => handleSizeSelection(size)}
             >
               {size}
             </button>
           ))}
+        </div>
+        <div className="quantity_buttons">
+          <button onClick={decreaseQuantity}>-</button>
+          <p>{quantity}</p>
+          <button onClick={increaseQuantity}>+</button>
         </div>
         <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
