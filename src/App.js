@@ -11,6 +11,7 @@ import Categories from "./pages/Categories";
 import Contact from "./pages/Contact";
 import { CartProvider } from "./useContext/CartContext";
 import Cart from "./pages/Cart";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -25,7 +26,9 @@ const App = () => {
           <Route path="/product/:productId" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
+
         <VoiceNavigation />
+        <Footer />
       </CartProvider>
     </div>
   );
