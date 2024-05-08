@@ -11,7 +11,7 @@ import mastercardImage from "../../images/Mastercard.png";
 const Footer = () => {
   return (
   <div className="footer">
-    <div className="top">
+    <div className="footer-top">
       <div className="left">
         <img src={footerImage} alt="" />
         <p>Speech-driven website is a new solution for people with disabilities</p>
@@ -50,7 +50,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
-    <div className="bot">
+    <div className="footer-bot">
       <hr />
       <p>2024 All rights reserved.</p>
     </div>
