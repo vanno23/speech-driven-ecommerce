@@ -7,7 +7,6 @@ const Cart = () => {
   const { cart } = useCart();
 
   const removeFromCart = (name) => {
-    // Logic to remove item from cart
     console.log(`Removing ${name} from cart`);
   };
 
