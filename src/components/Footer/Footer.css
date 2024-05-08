@@ -7,7 +7,7 @@
     margin-top: 72px;
 }
 
-.top{
+.footer-top{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -53,18 +53,18 @@
     align-items: center;
 }
 
-.bot{
+.footer-bot{
     width: 100%;
     margin-top: 80px;
     text-align: center;
 }
 
-.bot hr{
+.footer-bot hr{
     height: 1px;
     width: 100%;
     opacity: 0.3;
 }
 
-.bot p{
+.footer-bot p{
     margin-top: 20px;
 }

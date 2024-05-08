@@ -18,7 +18,7 @@
       "inStock": true,
       "price": 27.0,
       "image": "./BestSellingImages/image1.svg",
-      "colors": ["black", "#FFD58A", "gray"],
+      "colors": ["black", "yellow", "gray"],
       "sizes": ["S", "M", "L", "XL"],
       "category": "Wardrobe Essentials",
       "description": "This monochromatic wardrobe set includes versatile pieces that can be mixed and matched for effortless style."
