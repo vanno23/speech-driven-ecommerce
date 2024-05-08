@@ -1,0 +1,70 @@
+.footer{
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 100px 40px 100px;
+    margin-top: 72px;
+}
+
+.top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left p{
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+.icons{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.mid{
+    display: flex;
+    column-gap: 60px;
+}
+
+.mid div h3{
+    margin-bottom: 30px;
+}
+
+.mid div p{
+    margin-bottom: 16px;
+}
+
+.right{
+    align-self: flex-start;
+}
+
+.right h3{
+    margin-bottom: 30px;
+}
+
+.payments{
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+}
+
+.bot{
+    width: 100%;
+    margin-top: 80px;
+    text-align: center;
+}
+
+.bot hr{
+    height: 1px;
+    width: 100%;
+    opacity: 0.3;
+}
+
+.bot p{
+    margin-top: 20px;
+}
