@@ -15,45 +15,45 @@ const Contact = () => {
       <div class="form-container">
         <h1><span><img src={mailImage} alt="" /></span>Write Us</h1>
         <h2>Your Information</h2>
-          <form action="#">
-              <div class="input-group">
-                  <input type="text" placeholder="Full Name" required />
-              </div>
-              <div class="input-group">
-                  <input type="email" placeholder="Email" required />
-              </div>
-              <div class="input-group">
-                  <input type="text" placeholder="Subject" required />
-              </div>
-              <div class="input-group">
-                  <input type="text" placeholder="Order Number" />
-              </div>
-              <div class="input-group">
-                  <textarea placeholder="Message" required></textarea>
-              </div>
-              <div class="checkbox-group">
-                  <input type="checkbox" id="privacy-policy" />
-                  <label for="privacy-policy">I have read and understood the contact us privacy and policy.</label>
-              </div>
-              <div class="button-group">
-                  <button type="submit">Send</button>
-              </div>
-          </form>
+        <form action="#">
+            <div class="input-group">
+                <input type="text" placeholder="Full Name" required />
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Email" required />
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Subject" required />
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Order Number" />
+            </div>
+            <div class="input-group">
+                <textarea placeholder="Message" required></textarea>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="privacy-policy" />
+                <label for="privacy-policy">I have read and understood the contact us privacy and policy.</label>
+            </div>
+            <div class="button-group">
+                <button type="submit">Send</button>
+            </div>
+        </form>
       </div>
 
       <div class="contact-methods">
-          <div class="method">
-            <img src={mailImage} alt="" />
-            <h3>Call Us</h3>
-            <p>We're here to talk to you</p>
-            <p className="info">555 123 456</p>
-          </div>
-          <div class="method">
-            <img src={mailImage} alt="" />
-            <h3>Email Us</h3>
-            <p>You are welcome to send us an email</p>
-            <p className="info">hello@gmail.com</p>
-          </div>
+        <div class="method">
+          <img src={mailImage} alt="" />
+          <h3>Call Us</h3>
+          <p>We're here to talk to you</p>
+          <p className="info">555 123 456</p>
+        </div>
+        <div class="method">
+          <img src={mailImage} alt="" />
+          <h3>Email Us</h3>
+          <p>You are welcome to send us an email</p>
+          <p className="info">hello@gmail.com</p>
+        </div>
       </div>
     </div>
   );

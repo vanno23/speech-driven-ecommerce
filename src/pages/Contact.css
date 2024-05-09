@@ -21,7 +21,7 @@ h1{
     align-self: flex-start;
 }
 
-.top p{
+.contact-top p{
     align-self: flex-start;
 }
 
@@ -47,7 +47,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-input[type="text"],
+.form-container form input[type="text"],
 input[type="email"],
 textarea {
     width: 100%;
@@ -56,16 +56,16 @@ textarea {
     box-sizing: border-box;
 }
 
-textarea {
+.form-container form textarea {
     height: 100px;
     resize: none;
 }
 
-input[type="checkbox"] {
+.checkbox-group input[type="checkbox"] {
     margin-right: 5px;
 }
 
-button {
+.button-group button {
     padding: 10px 100px;
     background-color: #5cb85c;
     color: white;
@@ -74,7 +74,7 @@ button {
     align-self: flex-end;
 }
 
-button:hover {
+.button-group button:hover {
     background-color: #4cae4c;
 }
 
