@@ -1,6 +1,7 @@
 import React from "react";
 import "./Contact.css";
 import mailImage from "../images/mail.png";
+import callImage from "../images/call.png";
 
 const Contact = () => {
   return (
@@ -17,19 +18,19 @@ const Contact = () => {
         <h2>Your Information</h2>
         <form action="#">
             <div class="input-group">
-                <input type="text" placeholder="Full Name" required />
+                <input type="text" placeholder="Full Name" id="fullname" required />
             </div>
             <div class="input-group">
-                <input type="email" placeholder="Email" required />
+                <input type="email" placeholder="Email" id="name" required />
             </div>
             <div class="input-group">
-                <input type="text" placeholder="Subject" required />
+                <input type="text" placeholder="Subject" id="subject" required />
             </div>
             <div class="input-group">
-                <input type="text" placeholder="Order Number" />
+                <input type="text" placeholder="Order Number" id="ordernumber" />
             </div>
             <div class="input-group">
-                <textarea placeholder="Message" required></textarea>
+                <textarea placeholder="Message" id="message" required></textarea>
             </div>
             <div class="checkbox-group">
                 <input type="checkbox" id="privacy-policy" />
@@ -43,7 +44,7 @@ const Contact = () => {
 
       <div class="contact-methods">
         <div class="method">
-          <img src={mailImage} alt="" />
+          <img src={callImage} alt="" />
           <h3>Call Us</h3>
           <p>We're here to talk to you</p>
           <p className="info">555 123 456</p>

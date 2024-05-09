@@ -91,6 +91,10 @@ textarea {
     text-align: center;
 }
 
+.method img{
+    max-width: 20px;
+}
+
 .info{
     width: 400px;
     border: 1px black solid;
