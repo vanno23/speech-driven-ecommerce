@@ -13,8 +13,8 @@ const VoiceNavigation = () => {
       "go to categories": () => navigate("/categories"),
       "go to contact": () => navigate("/contact"),
       "go to cart": () => navigate("/cart"),
-      "scroll down": () => window.scrollBy(0, 400),
-      "scroll up": () => window.scrollBy(0, -400),
+      "scroll down": () => window.scrollBy({left: 0, top: 400, behavior: "smooth"}),
+      "scroll up": () => window.scrollBy({left: 0, top: -400, behavior: "smooth"}),
     };
 
     annyang.addCommands(commands);
