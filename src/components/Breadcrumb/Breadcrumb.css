@@ -1,0 +1,40 @@
+.Breadcrumb {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f6f6f6;
+}
+
+.Breadcrumb_item {
+  width: 1440px;
+  margin: auto;
+}
+
+.Breadcrumb_item h4 {
+  font-size: 1.2rem;
+}
+
+.Breadcrumb_item span:nth-child(1) {
+  color: #5c5f6a;
+}
+
+.Breadcrumb_item span {
+  font-size: 0.925rem;
+}
+
+.Breadcrumb_item i {
+  margin-inline: 8px;
+}
+
+@media (max-width: 1540px) {
+  .Breadcrumb_item {
+    width: 1180px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .Breadcrumb_item {
+    width: 90%;
+  }
+}
