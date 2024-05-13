@@ -1,0 +1,42 @@
+.productReviews ul {
+  margin-top: 30px;
+}
+.productReviews li {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.productReviews li .productReviewsLogo {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f1ff;
+  border-radius: 50%;
+}
+
+.productReviews li .productReviewsLogo p {
+  color: #4078ff;
+  font-weight: 600;
+}
+
+.productReviews li .productReviewsName {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.productReviews li p {
+  font-size: 0.875rem;
+}
+
+.productReviews li .productReviewsTime {
+  color: #5c5f6a;
+}
+
+.productReviews li .productReviewsComment {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #5c5f6a;
+}

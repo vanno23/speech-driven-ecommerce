@@ -56,7 +56,7 @@ const ProductInfo = ({ product }) => {
       </div>
       <div className="productInfoDetails">
         <h3>{product.name}</h3>
-        <p>${product.price.toFixed(2)}</p>
+        <p className="productInfoPrice">${product.price.toFixed(2)}</p>
 
         <ProductInfoVoice
           product={product}
@@ -101,12 +101,17 @@ const ProductInfo = ({ product }) => {
             </button>
           ))}
         </div>
-        <div className="quantity_buttons">
-          <button onClick={decreaseQuantity}>-</button>
-          <p>{quantity}</p>
-          <button onClick={increaseQuantity}>+</button>
+        <div className="productInfo_quantity">
+          <p className="quantity_title">Quantity</p>
+          <div className="quantity_buttons">
+            <i onClick={decreaseQuantity} class="fa-solid fa-minus"></i>{" "}
+            <p>{quantity}</p>
+            <i onClick={increaseQuantity} class="fa-solid fa-plus"></i>
+          </div>
         </div>
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <button className="add_to_cart" onClick={handleAddToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );
