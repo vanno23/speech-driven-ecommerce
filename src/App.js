@@ -12,24 +12,32 @@ import Contact from "./pages/Contact";
 import { CartProvider } from "./useContext/CartContext";
 import Cart from "./pages/Cart";
 import Footer from "./components/Footer/Footer";
+import Checkout from "./pages/Checkout";
+import { ChangeDetailProvider } from "./useContext/ChangeDetailContext";
+import { SearchProvider } from "./useContext/SearchContext";
 
 const App = () => {
   return (
     <div className="App">
-      <CartProvider>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/product/:productId" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+      <VoiceNavigation />
+      <ChangeDetailProvider>
+        <SearchProvider>
+          <CartProvider>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/product/:productId" element={<Product />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
+            </Routes>
 
-        <VoiceNavigation />
-        <Footer />
-      </CartProvider>
+            <Footer />
+          </CartProvider>
+        </SearchProvider>
+      </ChangeDetailProvider>
     </div>
   );
 };

@@ -1,0 +1,117 @@
+.checkout-container {
+  margin: 0 auto;
+  background: white;
+  padding: 20px 0%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.checkout-container .checkout-top {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 100px;
+  margin-top: 20px;
+  text-align: left;
+  background-color: #d5e5d7;
+  row-gap: 20px;
+  width: 100%;
+}
+.checkout-container .checkout-top-text {
+  font-size: 18px;
+}
+.checkout-container h1 {
+  align-self: flex-start;
+}
+
+.checkout-container .checkout-top p {
+  align-self: flex-start;
+}
+
+.checkout-container .form-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 140px;
+  text-align: center;
+}
+
+.checkout-container .form-container div {
+  margin-top: 20px;
+}
+
+.checkout-container .input-group,
+.checkout-container .checkbox-group,
+.checkout-container .button-group {
+  margin-bottom: 15px;
+}
+
+.checkout-container .form-container form input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+.checkout-container .form-container form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.checkout-container .form-container span {
+  color: #5c5f6a;
+}
+
+.checkout-container .go-to-home {
+  background-color: black;
+  color: white;
+  width: 200px;
+  height: 50px;
+  margin-top: 30px;
+  border-radius: 3px;
+  border: none;
+}
+
+.checkout_breadcrumb {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #d5e5d7;
+}
+
+.checkout_breadcrumb .Breadcrumb_item {
+  width: 1440px;
+  margin: auto;
+}
+
+.checkout_breadcrumb .Breadcrumb_item h4 {
+  font-size: 1.2rem;
+}
+
+.checkout_breadcrumb .Breadcrumb_item span:nth-child(1) {
+  color: #5c5f6a;
+}
+
+.checkout_breadcrumb .Breadcrumb_item span {
+  font-size: 0.925rem;
+}
+
+.checkout_breadcrumb .Breadcrumb_item i {
+  margin-inline: 8px;
+}
+
+@media (max-width: 1540px) {
+  .checkout_breadcrumb .Breadcrumb_item {
+    width: 1180px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .checkout_breadcrumb .Breadcrumb_item {
+    width: 90%;
+  }
+}

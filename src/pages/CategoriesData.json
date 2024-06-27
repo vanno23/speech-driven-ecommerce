@@ -1,5 +1,5 @@
 {
-  "BestSelling": [
+  "Categories": [
     {
       "id": 1,
       "name": "Classic Monochrome T-shirt",
@@ -35,7 +35,7 @@
       "inStock": true,
       "price": 22.0,
       "image": "/BestSellingImages/image2.svg",
-      "colors": ["beige", "taupe", "cream"],
+      "colors": ["beige", "black", "yellow"],
       "sizes": ["S", "M", "L"],
       "category": "Neutral Clothing",
       "details": "These essential neutral pieces are wardrobe staples, perfect for creating chic and understated looks."
@@ -49,6 +49,39 @@
       "colors": ["black"],
       "sizes": ["S", "M", "L", "XL", "XXL"],
       "category": "Outerwear",
+      "details": "Stay warm and stylish with this UTRANET black jacket, featuring a sleek design and cozy insulation."
+    },
+    {
+      "id": 5,
+      "name": "Classic Monochrome Tees",
+      "inStock": true,
+      "price": 35.0,
+      "image": "/BestSellingImages/image4.svg",
+      "colors": ["blue"],
+      "sizes": ["S", "M", "L"],
+      "category": "T-shirts",
+      "details": "Stay warm and stylish with this UTRANET black jacket, featuring a sleek design and cozy insulation."
+    },
+    {
+      "id": 6,
+      "name": "MOCKUP Black",
+      "inStock": true,
+      "price": 38.0,
+      "image": "/BestSellingImages/image5.svg",
+      "colors": ["black"],
+      "sizes": ["S", "M", "L", "XL"],
+      "category": "T-shirts",
+      "details": "Stay warm and stylish with this UTRANET black jacket, featuring a sleek design and cozy insulation."
+    },
+    {
+      "id": 7,
+      "name": "Athletic Shirt",
+      "inStock": true,
+      "price": 23.0,
+      "image": "/BestSellingImages/image5.svg",
+      "colors": ["black"],
+      "sizes": ["M", "L", "XL"],
+      "category": "T-shirts",
       "details": "Stay warm and stylish with this UTRANET black jacket, featuring a sleek design and cozy insulation."
     }
   ]

@@ -1,32 +1,33 @@
 import React, { useEffect, useState } from "react";
 import annyang from "annyang";
 import "./Comment.css";
+import VoiceNavigation from "../../VoiceNavigation";
+
 const Comment = ({ productId }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    const storedComments = localStorage.getItem(`comments_${productId}`);
+    const storedComments = localStorage.getItem("allComments");
     if (storedComments) {
       setComments(JSON.parse(storedComments));
     }
-  }, [productId]);
+  }, []);
 
   useEffect(() => {
     const addVoiceCommands = () => {
       annyang.addCommands({
         [`add a comment *comment`]: (comment) => {
           const timestamp = new Date().getTime();
-          setComments((prevComments) => {
-            const updatedComments = [...prevComments, { comment, timestamp }];
-            localStorage.setItem(
-              `comments_${productId}`,
-              JSON.stringify(updatedComments)
-            );
-            return updatedComments;
-          });
+          const newComment = { productId, comment, timestamp };
+          setComments((prevComments) => [...prevComments, newComment]);
+          localStorage.setItem(
+            "allComments",
+            JSON.stringify([...comments, newComment])
+          );
+          // Refresh the page after adding a comment
+          // window.location.reload();
         },
       });
-
       annyang.start();
     };
 
@@ -36,7 +37,7 @@ const Comment = ({ productId }) => {
       annyang.removeCommands();
       annyang.abort();
     };
-  }, [productId]);
+  }, [productId, comments]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -44,7 +45,7 @@ const Comment = ({ productId }) => {
     }, 60000);
 
     return () => clearInterval(timer);
-  }, [productId]);
+  }, []);
 
   const calculateTimeAgo = (timestamp) => {
     const now = new Date().getTime();
@@ -62,11 +63,16 @@ const Comment = ({ productId }) => {
     }
   };
 
+  const filteredComments = comments.filter(
+    (comment) => comment.productId === productId
+  );
+
   return (
     <div className="productReviews">
+      <VoiceNavigation />
       <h3>Comments</h3>
       <ul>
-        {comments.map((commentObj, index) => (
+        {filteredComments.map((commentObj, index) => (
           <li key={index}>
             <div className="productReviewsLogo">
               <p>UO</p>

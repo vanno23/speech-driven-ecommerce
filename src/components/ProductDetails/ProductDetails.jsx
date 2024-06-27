@@ -1,21 +1,28 @@
 import "./ProductDetails.css";
 import Comment from "../Comment/Comment";
+import ChangeDetail from "../../voice/ChangeDetail";
+import VoiceNavigation from "../../VoiceNavigation";
+import { useChangeDetail } from "../../useContext/ChangeDetailContext"; // Adjust the path as necessary
 
-export const ProductDetails = ({ changeDetail, setChangeDetail, product }) => {
+export const ProductDetails = ({ product }) => {
+  const { changeDetail, setChangeDetail } = useChangeDetail(); // Use the context
+
   return (
     <div className="productDetails">
+      <VoiceNavigation />
+      <ChangeDetail setChangeDetail={setChangeDetail} />
       <div className="changeDetails">
         <button
           className={changeDetail ? "active" : ""}
           onClick={() => setChangeDetail(true)}
         >
-          <i class="fa-solid fa-ellipsis"></i>Details
+          <i className="fa-solid fa-ellipsis"></i>Details
         </button>
         <button
           className={changeDetail ? "" : "active"}
           onClick={() => setChangeDetail(false)}
         >
-          <i class="fa-regular fa-comment"></i>
+          <i className="fa-regular fa-comment"></i>
           Comments
         </button>
       </div>
@@ -27,13 +34,16 @@ export const ProductDetails = ({ changeDetail, setChangeDetail, product }) => {
               <p>{product?.details}</p>
             </div>
             <ul className="details_type">
-              {product?.details_type.map((item, index) => (
+              {product?.details_type?.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
           </div>
         ) : (
-          <Comment productId={product.id} />
+          <>
+            <VoiceNavigation />
+            <Comment productId={product.id} />
+          </>
         )}
       </div>
     </div>

@@ -1,35 +1,21 @@
+// Product.jsx
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProductInfo from "../components/ProductInfo/ProductInfo";
-import BestSellingData from "../components/BestSelling/BestSellingData.json";
+// import BestSellingData from "../components/BestSelling/BestSellingData.json";
 import { ProductDetails } from "../components/ProductDetails/ProductDetails";
-import annyang from "annyang";
+import VoiceNavigation from "../VoiceNavigation";
+import ChangeDetail from "../voice/ChangeDetail";
+import { useChangeDetail } from "../useContext/ChangeDetailContext";
+import CategoriesData from "../pages/CategoriesData.json";
 
 const Product = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-
-  const [changeDetail, setChangeDetail] = useState(true);
-
-  useEffect(() => {
-    const addVoiceCommands = () => {
-      annyang.addCommands({
-        "show details": () => setChangeDetail(true),
-        "show comments": () => setChangeDetail(false),
-      });
-      annyang.start();
-    };
-
-    addVoiceCommands();
-
-    return () => {
-      annyang.removeCommands();
-      annyang.abort();
-    };
-  }, []);
+  const { setChangeDetail } = useChangeDetail();
 
   useEffect(() => {
-    const foundProduct = BestSellingData.BestSelling.find(
+    const foundProduct = CategoriesData.Categories.find(
       (item) => item.id === parseInt(productId)
     );
     setProduct(foundProduct);
@@ -37,17 +23,16 @@ const Product = () => {
 
   return (
     <div>
+      <VoiceNavigation />
+      <ChangeDetail setChangeDetail={setChangeDetail} />
+
       <div className="Breadcrumb_item">
         <span>Ecommerce</span>
-        <i class="fa-solid fa-angle-right"></i>
+        <i className="fa-solid fa-angle-right"></i>
         <span>Product</span>
       </div>
       {product ? <ProductInfo product={product} /> : <p>Loading...</p>}
-      <ProductDetails
-        changeDetail={changeDetail}
-        setChangeDetail={setChangeDetail}
-        product={product}
-      />
+      <ProductDetails product={product} />
     </div>
   );
 };

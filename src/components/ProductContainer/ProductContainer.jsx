@@ -9,7 +9,7 @@ const ProductContainer = ({ Data }) => {
         <h3>Best Selling</h3>
       </div>
       <div className="ProductItems">
-        {Data.map((item) => (
+        {Data?.map((item) => (
           <ProductCard item={item} key={item.id} />
         ))}
       </div>

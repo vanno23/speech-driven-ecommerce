@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCart } from "../useContext/CartContext";
 import "./Cart.css";
 import CartVoice from "../voice/CartVoice";
 import OrderSummary from "../components/OrderSummary/OrderSummary";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
+import VoiceNavigation from "../VoiceNavigation";
+import { useNavigate } from "react-router-dom";
+import annyang from "annyang";
 
 const Cart = () => {
   const { cart, setCart } = useCart();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const commands = {
+      "check out": () => {
+        setCart([]);
+        navigate("/checkout");
+      },
+    };
+
+    annyang.addCommands(commands);
+    annyang.start();
+
+    return () => {
+      annyang.removeCommands();
+      annyang.abort();
+    };
+  }, [navigate, setCart]);
 
   const removeFromCart = (name) => {
     const lowerCaseName = name.toLowerCase();
@@ -45,6 +67,7 @@ const Cart = () => {
 
   return (
     <>
+      <VoiceNavigation />
       <Breadcrumb page={"Cart"} />
       <div className="cartpage">
         {cart.length === 0 ? (

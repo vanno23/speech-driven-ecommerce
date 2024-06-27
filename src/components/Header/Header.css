@@ -51,6 +51,29 @@
   column-gap: 32px;
 }
 
+.headerIcons .cartIcon {
+  position: relative;
+}
+
+.headerIcons i {
+  font-size: 1.3rem;
+}
+
+.headerIcons .cartIcon p {
+  display: flex;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: white;
+  align-items: center;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: orange;
+  border-radius: 50%;
+}
+
 @media (max-width: 1540px) {
   .header {
     width: 1180px;

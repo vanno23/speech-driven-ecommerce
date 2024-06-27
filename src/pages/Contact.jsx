@@ -1,11 +1,99 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Contact.css";
 import mailImage from "../images/mail.png";
 import callImage from "../images/call.png";
+import annyang from "annyang";
+import VoiceNavigation from "../VoiceNavigation";
 
 const Contact = () => {
+  const [filledInputs, setFilledInputs] = useState([]);
+
+  useEffect(() => {
+    const commands = {
+      "select name": () => {
+        document.getElementById("fullname").focus();
+      },
+      // "select email": () => {
+      //   document.getElementById("email").focus();
+      // },
+      "select subject": () => {
+        document.getElementById("subject").focus();
+      },
+      "select order number": () => {
+        document.getElementById("ordernumber").focus();
+      },
+      "select message": () => {
+        document.getElementById("message").focus();
+      },
+      "check privacy policy": () => {
+        const privacyPolicyCheckbox = document.getElementById("privacy-policy");
+        if (privacyPolicyCheckbox) {
+          privacyPolicyCheckbox.checked = true;
+          updateFilledInputs("privacy-policy");
+        }
+      },
+      "write *text": (text) => {
+        const inputField = document.activeElement;
+        inputField.value = text;
+        updateFilledInputs(inputField.id);
+      },
+      send: () => {
+        handleSubmit();
+      },
+    };
+
+    annyang.addCommands(commands);
+    annyang.addCallback("result", (phrases) => {
+      console.log("Recognized speech:", phrases[0]);
+    });
+    annyang.start();
+
+    const inputs = document.querySelectorAll(
+      "input[required], textarea[required]"
+    );
+    inputs.forEach((input) => {
+      input.addEventListener("input", handleInputChange);
+    });
+
+    return () => {
+      annyang.removeCommands();
+      annyang.abort();
+      inputs.forEach((input) => {
+        input.removeEventListener("input", handleInputChange);
+      });
+    };
+  }, [filledInputs]);
+
+  const handleInputChange = (event) => {
+    const inputName = event.target.id;
+    if (!filledInputs.includes(inputName)) {
+      setFilledInputs([...filledInputs, inputName]);
+    }
+  };
+
+  const updateFilledInputs = (inputName) => {
+    if (!filledInputs.includes(inputName)) {
+      setFilledInputs([...filledInputs, inputName]);
+    }
+  };
+
+  const handleSubmit = () => {
+    const allInputs = document.querySelectorAll(
+      "input[required], textarea[required], input[type='checkbox']"
+    );
+    const filledInputs = Array.from(allInputs).filter(
+      (input) => input.checked || input.value.trim()
+    );
+    if (filledInputs.length === allInputs.length) {
+      alert("Form is filled. Sending...");
+    } else {
+      alert("Please fill all required fields before sending.");
+    }
+  };
+
   return (
     <div className="contact-container">
+      <VoiceNavigation />
       <h1>Contact Us</h1>
       <div className="contact-top">
         <p>
@@ -29,18 +117,23 @@ const Contact = () => {
           Write Us
         </h1>
         <h2>Your Information</h2>
-        <form action="#">
+        <form onSubmit={handleSubmit}>
           <div className="input-group">
             <input type="text" placeholder="Full Name" id="fullname" required />
           </div>
-          <div className="input-group">
-            <input type="email" placeholder="Email" id="name" required />
-          </div>
+          {/* <div className="input-group">
+            <input type="email" placeholder="Email" id="email" required />
+          </div> */}
           <div className="input-group">
             <input type="text" placeholder="Subject" id="subject" required />
           </div>
           <div className="input-group">
-            <input type="text" placeholder="Order Number" id="ordernumber" />
+            <input
+              type="text"
+              placeholder="Order Number"
+              id="ordernumber"
+              required
+            />
           </div>
           <div className="input-group">
             <textarea placeholder="Message" id="message" required></textarea>

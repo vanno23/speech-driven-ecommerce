@@ -1,0 +1,98 @@
+.CategoriesPage {
+  width: 1440px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin-top: 32px;
+  column-gap: 35px;
+}
+
+.filters {
+  padding: 24px 18px;
+  border: 1px solid #e6e7e8;
+  border-radius: 6px;
+}
+
+.filters .filter-title {
+  font-weight: 700;
+}
+
+.CategoriesPage .filters .categories-filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.CategoriesPage .filters .category-name {
+  display: flex;
+  flex-direction: column;
+  color: #474b57;
+  font-size: 1rem;
+}
+.CategoriesPage .filters .category-name,
+.CategoriesPage .filters .colors-filter {
+  margin-bottom: 40px;
+}
+
+.CategoriesPage .filters .colorBorder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+}
+
+.CategoriesPage .filters .colorBorder button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+}
+
+.CategoriesPage .filters .colorBorder.selectedColor {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black !important;
+}
+
+.CategoriesPage .filters .color-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.CategoriesPage .filters .category-name label {
+  border-bottom: 1px solid #e9e9eb;
+  padding: 12px 4px 12px 4px;
+}
+.CategoriesPage .filters .category-name label input {
+  margin-right: 10px;
+}
+
+.filter_size {
+  margin-top: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: 1px solid #e6e7e8;
+  border-radius: 4px;
+  margin-right: 8px;
+  text-transform: uppercase;
+}
+
+.filter_size.selectedSize {
+  border: 1px solid black;
+}
+
+@media (max-width: 1540px) {
+  .CategoriesPage {
+    width: 1180px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .CategoriesPage {
+    width: 90%;
+  }
+}

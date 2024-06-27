@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import "./ProductInfo.css";
 import { useCart } from "../../useContext/CartContext";
 import ProductInfoVoice from "../../voice/ProductInfoVoice";
+import VoiceNavigation from "../../VoiceNavigation";
+import { useChangeDetail } from "../../useContext/ChangeDetailContext";
+import ChangeDetail from "../../voice/ChangeDetail";
 
 const ProductInfo = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  const [quantity, setQuantity] = useState(1); // Initial quantity set to 1
+  const [quantity, setQuantity] = useState(1);
+  const { setChangeDetail } = useChangeDetail();
 
   const { cart, setCart, addToCart } = useCart();
 
@@ -51,6 +55,9 @@ const ProductInfo = ({ product }) => {
 
   return (
     <div className="ProductInfo">
+      <VoiceNavigation />
+      <ChangeDetail setChangeDetail={setChangeDetail} />
+
       <div className="productInfoImage">
         <img src={product.image} alt={product.name} />
       </div>
@@ -104,9 +111,15 @@ const ProductInfo = ({ product }) => {
         <div className="productInfo_quantity">
           <p className="quantity_title">Quantity</p>
           <div className="quantity_buttons">
-            <i onClick={decreaseQuantity} class="fa-solid fa-minus"></i>{" "}
+            <i
+              onClick={() => decreaseQuantity()}
+              className="fa-solid fa-minus"
+            ></i>{" "}
             <p>{quantity}</p>
-            <i onClick={increaseQuantity} class="fa-solid fa-plus"></i>
+            <i
+              onClick={() => increaseQuantity()}
+              className="fa-solid fa-plus"
+            ></i>
           </div>
         </div>
         <button className="add_to_cart" onClick={handleAddToCart}>

@@ -7,7 +7,7 @@ const Breadcrumb = ({ page }) => {
         <h4>{page}</h4>
         <div>
           <span>Ecommerce</span>
-          <i class="fa-solid fa-angle-right"></i>
+          <i className="fa-solid fa-angle-right"></i>
           <span>{page}</span>
         </div>
       </div>

@@ -38,7 +38,7 @@ const OrderSummary = () => {
         <span>${(subtotal + tax * totalQuantity).toFixed(2)}</span>
       </div>
 
-      <Link to={"/"} className="checkout">
+      <Link to={"/checkout"} className="checkout">
         Checkout
       </Link>
     </div>
